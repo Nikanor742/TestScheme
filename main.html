@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open App</title>
+</head>
+<body>
+
+<script>
+    window.onload = function() {
+        // Попытка открыть приложение через кастомную схему
+        var now = new Date().getTime();
+
+        // Проверяем через 2 секунды, если приложение не открыто — перенаправляем на другой URL
+        setTimeout(function() {
+            if (new Date().getTime() - now > 1500) return; // Приложение открыто, не делаем ничего
+            // Если приложение не открыто — перенаправляем на страницу магазина приложений
+            window.location = 'https://play.google.com/store/apps/details?id=com.example.myapp'; // URL на магазин приложений
+        }, 1500);
+
+        // Переход по кастомной схеме для запуска приложения
+        window.location = 'myapp://path';
+    };
+</script>
+
+</body>
+</html>
